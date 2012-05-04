@@ -3,6 +3,16 @@ require 'sidekiq/client'
 require 'sidekiq/worker'
 
 class TestClient < MiniTest::Unit::TestCase
+  describe 'with really real redis' do
+    before do
+      temporary_variable = Redis.connect(url: 'redis://localhost/15')
+      temporary_variable.info
+    end
+
+    it 'is true' do
+      assert true
+    end
+  end
   describe 'with real redis' do
     before do
       Sidekiq.redis = REDIS
