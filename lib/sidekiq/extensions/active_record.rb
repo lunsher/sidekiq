@@ -17,11 +17,11 @@ module Sidekiq
       end
     end
 
-    module ActiveRecord
-      def delay
-        Proxy.new(DelayedModel, self)
-      end
-    end
+    #module ActiveRecord
+    #  def delay
+    #    Proxy.new(DelayedModel, self)
+    #  end
+    #end
 
   end
 end
